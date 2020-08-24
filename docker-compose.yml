@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  example:
+    restart: always
+    build: .
+    # command: "sh /go/dev/start_watch.sh"
+    command: "sh /go/dev/start_debug.sh"
+    volumes:
+    - ./src:/go/src/example
+    - ./dev:/go/dev
+    expose:
+      - 9100
+    ports:
+    - "9100:9100"
+    - "8080:8080"
